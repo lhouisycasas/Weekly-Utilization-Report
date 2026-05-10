@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Executive Utilization & Recovery Report — Week Ending 05/02/2026</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #1c2330;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #7d8590;
+    --accent: #58a6ff;
+    --green: #3fb950;
+    --yellow: #d29922;
+    --red: #f85149;
+    --orange: #db6d28;
+    --purple: #bc8cff;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-left h1 {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--text);
+  }
+  .header-left p {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .week-badge {
+    font-family: var(--mono);
+    font-size: 11px;
+    background: rgba(88,166,255,0.1);
+    border: 1px solid rgba(88,166,255,0.3);
+    color: var(--accent);
+    padding: 4px 12px;
+    border-radius: 4px;
+  }
+
+  /* ── TABS ── */
+  .tab-nav {
+    display: flex;
+    gap: 0;
+    padding: 0 32px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+  .tab-btn {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.15s;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ── LAYOUT ── */
+  main { padding: 24px 32px; max-width: 1400px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── KPI CARDS ── */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .kpi-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    animation: fadeUp 0.4s ease both;
+  }
+  .kpi-card:nth-child(2) { animation-delay: 0.05s; }
+  .kpi-card:nth-child(3) { animation-delay: 0.10s; }
+  .kpi-card:nth-child(4) { animation-delay: 0.15s; }
+  .kpi-card:nth-child(5) { animation-delay: 0.20s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .kpi-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .kpi-value {
+    font-family: var(--mono);
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1;
+  }
+  .kpi-sub {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .kpi-red { color: var(--red); }
+  .kpi-yellow { color: var(--yellow); }
+  .kpi-green { color: var(--green); }
+  .kpi-blue { color: var(--accent); }
+
+  /* ── RISK BANNER ── */
+  .risk-banner {
+    background: rgba(248,81,73,0.08);
+    border: 1px solid rgba(248,81,73,0.3);
+    border-left: 3px solid var(--red);
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: fadeUp 0.4s ease 0.1s both;
+  }
+  .risk-banner .icon { font-size: 16px; }
+  .risk-banner strong { color: var(--red); }
+  .risk-banner span { color: var(--muted); font-size: 13px; }
+
+  /* ── SECTION TITLES ── */
+  .section-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 12px;
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── SITE CARDS ── */
+  .site-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .site-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    cursor: pointer;
+    transition: border-color 0.15s, transform 0.15s;
+    animation: fadeUp 0.4s ease both;
+    position: relative;
+    overflow: hidden;
+  }
+  .site-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+  }
+  .site-card.risk-critical::before { background: var(--red); }
+  .site-card.risk-watch::before { background: var(--yellow); }
+  .site-card.risk-stable::before { background: var(--green); }
+  .site-card:hover { border-color: var(--accent); transform: translateY(-1px); }
+
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  .site-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .risk-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .badge-critical { background: rgba(248,81,73,0.15); color: var(--red); border: 1px solid rgba(248,81,73,0.3); }
+  .badge-watch { background: rgba(210,153,34,0.15); color: var(--yellow); border: 1px solid rgba(210,153,34,0.3); }
+  .badge-stable { background: rgba(63,185,80,0.15); color: var(--green); border: 1px solid rgba(63,185,80,0.3); }
+
+  /* ── UTIL BAR ── */
+  .util-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .util-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    width: 36px;
+    flex-shrink: 0;
+  }
+  .bar-track {
+    flex: 1;
+    height: 6px;
+    background: var(--surface2);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.8s cubic-bezier(0.16,1,0.3,1);
+  }
+  .bar-green { background: var(--green); }
+  .bar-yellow { background: var(--yellow); }
+  .bar-red { background: var(--red); }
+  .util-pct {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    width: 38px;
+    text-align: right;
+  }
+
+  .site-stats {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+  }
+  .stat-item { flex: 1; }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+  .stat-value {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  /* trend arrow */
+  .trend-up { color: var(--green); }
+  .trend-down { color: var(--red); }
+  .trend-flat { color: var(--muted); }
+
+  /* ── TREND TABLE ── */
+  .trend-table-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    animation: fadeUp 0.4s ease 0.1s both;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  thead th {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface2);
+  }
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.1s;
+  }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: rgba(88,166,255,0.04); }
+  tbody td {
+    padding: 10px 14px;
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+  .td-site { font-weight: 500; color: var(--text); }
+  .td-pct { color: var(--muted); }
+  .td-latest { font-weight: 600; }
+
+  .spark-cell { padding: 8px 14px; }
+  .spark {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 24px;
+  }
+  .spark-bar {
+    width: 16px;
+    border-radius: 2px 2px 0 0;
+    transition: height 0.5s ease;
+  }
+
+  /* ── ACTION TRACKER ── */
+  .action-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    animation: fadeUp 0.4s ease 0.1s both;
+  }
+  .action-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    display: grid;
+    grid-template-columns: 130px 1fr 160px 120px 90px;
+    gap: 12px;
+    align-items: center;
+    transition: border-color 0.15s;
+  }
+  .action-item:hover { border-color: var(--border); }
+  .action-item.critical-item { border-left: 3px solid var(--red); }
+  .action-site {
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .action-issue {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .action-text {
+    font-size: 12px;
+    color: var(--text);
+    line-height: 1.4;
+  }
+  .status-pill {
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-weight: 500;
+    text-align: center;
+  }
+  .status-inprogress { background: rgba(88,166,255,0.12); color: var(--accent); border: 1px solid rgba(88,166,255,0.25); }
+  .status-notstarted { background: rgba(248,81,73,0.10); color: var(--red); border: 1px solid rgba(248,81,73,0.25); }
+  .deadline-cell {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    text-align: right;
+  }
+  .deadline-urgent { color: var(--yellow) !important; }
+
+  /* ── OVERVIEW TAB ── */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .overview-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    animation: fadeUp 0.4s ease both;
+  }
+  .overview-card h3 {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+
+  /* bar chart horizontal */
+  .hbar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .hbar-label {
+    font-size: 12px;
+    width: 130px;
+    flex-shrink: 0;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .hbar-track {
+    flex: 1;
+    height: 8px;
+    background: var(--surface2);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .hbar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 1s cubic-bezier(0.16,1,0.3,1);
+  }
+  .hbar-val {
+    font-family: var(--mono);
+    font-size: 11px;
+    width: 40px;
+    text-align: right;
+    color: var(--muted);
+  }
+
+  /* summary bullets */
+  .summary-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .summary-bullets li {
+    display: flex;
+    gap: 10px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+  .summary-bullets li::before {
+    content: '▸';
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .summary-bullets strong { color: var(--text); }
+
+  /* filter bar */
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 5px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.15s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .filter-btn.active { background: rgba(88,166,255,0.12); border-color: var(--accent); color: var(--accent); }
+
+  /* tooltip */
+  .tooltip-box {
+    position: absolute;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 12px;
+    pointer-events: none;
+    z-index: 200;
+    max-width: 240px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    display: none;
+  }
+
+  @media (max-width: 900px) {
+    main { padding: 16px; }
+    header { padding: 14px 16px; }
+    .tab-nav { padding: 0 16px; }
+    .overview-grid { grid-template-columns: 1fr; }
+    .action-item { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <h1>Executive Utilization &amp; Recovery Report</h1>
+    <p>DDSN &amp; CLTC // Multi-Site Performance Dashboard</p>
+  </div>
+  <span class="week-badge">WEEK ENDING 05/02/2026</span>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('overview',event)">Overview</button>
+  <button class="tab-btn" onclick="switchTab('cltc',event)">CLTC Sites</button>
+  <button class="tab-btn" onclick="switchTab('ddsn',event)">DDSN Sites</button>
+  <button class="tab-btn" onclick="switchTab('trends',event)">Trends</button>
+  <button class="tab-btn" onclick="switchTab('actions',event)">Action Tracker</button>
+</nav>
+
+<main>
+
+<!-- ══════════════════════════════════════════════════ OVERVIEW ══ -->
+<div id="tab-overview" class="tab-panel active">
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">Total CLTC Auth Hrs</div>
+      <div class="kpi-value kpi-blue">8,223.5</div>
+      <div class="kpi-sub">Across 9 active sites</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">CLTC Lost Hours</div>
+      <div class="kpi-value kpi-red">1,285.6</div>
+      <div class="kpi-sub">15.6% of authorized</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Total DDSN Auth Hrs</div>
+      <div class="kpi-value kpi-blue">3,016.8</div>
+      <div class="kpi-sub">8 active sites</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">DDSN Lost Hours</div>
+      <div class="kpi-value kpi-red">424.1</div>
+      <div class="kpi-sub">14.1% of authorized</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Sites at Risk</div>
+      <div class="kpi-value kpi-yellow">3</div>
+      <div class="kpi-sub">Beaufort, Spartanburg, Sumter</div>
+    </div>
+  </div>
+
+  <div class="risk-banner">
+    <span class="icon">⚠</span>
+    <div>
+      <strong>Spartanburg CLTC — Emerging High Risk</strong>
+      <span> · Significant week-over-week spike in missed hours. Immediate focus on client coordination and gap prevention required. Deadline: 14-May.</span>
+    </div>
+  </div>
+
+  <div class="overview-grid">
+    <div class="overview-card">
+      <h3>CLTC Lost Hours by Site</h3>
+      <div id="cltc-hbar"></div>
+    </div>
+    <div class="overview-card">
+      <h3>DDSN Lost Hours by Site</h3>
+      <div id="ddsn-hbar"></div>
+    </div>
+  </div>
+
+  <div class="overview-grid">
+    <div class="overview-card" style="animation-delay:0.1s">
+      <h3>Executive Summary</h3>
+      <ul class="summary-bullets">
+        <li><strong>DDSN lost hours</strong> remain primarily operational, with highest impact in Beaufort, Anderson, and Columbia &amp; Aiken.</li>
+        <li><strong>CLTC losses</strong> continue to be client-driven, with elevated impact in Columbia &amp; Aiken, Charleston, and Spartanburg.</li>
+        <li><strong>Spartanburg (CLTC)</strong> shows a notable increase in missed hours, indicating emerging risk.</li>
+        <li><strong>Beaufort</strong> remains a dual-risk site with both performance gaps and ongoing leadership alignment concerns.</li>
+        <li><strong>Charleston</strong> continues stable, controlled performance with strong supervisor engagement.</li>
+        <li>Under DDSN policy, lost hours are largely <strong>non-recoverable</strong>, requiring strict focus on same-day execution and prevention.</li>
+      </ul>
+    </div>
+    <div class="overview-card" style="animation-delay:0.15s">
+      <h3>Risk Distribution</h3>
+      <div style="display:flex; flex-direction:column; gap:12px; margin-top:4px;">
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+            <span style="font-size:12px;color:var(--red)">● Critical / At Risk</span>
+            <span style="font-family:var(--mono);font-size:12px;color:var(--muted)">Beaufort DDSN, Spartanburg CLTC</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill bar-red" style="width:22%"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+            <span style="font-size:12px;color:var(--yellow)">● Watch / Operational Gap</span>
+            <span style="font-family:var(--mono);font-size:12px;color:var(--muted)">Columbia, Charleston, Anderson</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill bar-yellow" style="width:55%"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+            <span style="font-size:12px;color:var(--green)">● Stable / Controlled</span>
+            <span style="font-family:var(--mono);font-size:12px;color:var(--muted)">Charleston DDSN, Kingstree CLTC</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill bar-green" style="width:22%"></div></div>
+        </div>
+        <div style="margin-top:8px;padding-top:12px;border-top:1px solid var(--border)">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">Open Actions Status</div>
+          <div style="display:flex;gap:16px;">
+            <div><span style="font-family:var(--mono);font-size:20px;font-weight:600;color:var(--accent)">4</span><div style="font-size:11px;color:var(--muted)">In Progress</div></div>
+            <div><span style="font-family:var(--mono);font-size:20px;font-weight:600;color:var(--red)">7</span><div style="font-size:11px;color:var(--muted)">Not Started</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ CLTC ══ -->
+<div id="tab-cltc" class="tab-panel">
+  <div class="filter-bar" id="cltc-filters">
+    <button class="filter-btn active" onclick="filterCards('cltc','all',this)">All</button>
+    <button class="filter-btn" onclick="filterCards('cltc','critical',this)">Critical</button>
+    <button class="filter-btn" onclick="filterCards('cltc','watch',this)">Watch</button>
+    <button class="filter-btn" onclick="filterCards('cltc','stable',this)">Stable</button>
+  </div>
+  <div class="site-grid" id="cltc-grid"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ DDSN ══ -->
+<div id="tab-ddsn" class="tab-panel">
+  <div class="filter-bar" id="ddsn-filters">
+    <button class="filter-btn active" onclick="filterCards('ddsn','all',this)">All</button>
+    <button class="filter-btn" onclick="filterCards('ddsn','critical',this)">Critical</button>
+    <button class="filter-btn" onclick="filterCards('ddsn','watch',this)">Watch</button>
+    <button class="filter-btn" onclick="filterCards('ddsn','stable',this)">Stable</button>
+  </div>
+  <div class="site-grid" id="ddsn-grid"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ TRENDS ══ -->
+<div id="tab-trends" class="tab-panel">
+  <p class="section-title">CLTC Week-over-Week Utilization</p>
+  <div class="trend-table-wrap">
+    <table id="cltc-trend-table"></table>
+  </div>
+  <p class="section-title">DDSN Week-over-Week Utilization</p>
+  <div class="trend-table-wrap">
+    <table id="ddsn-trend-table"></table>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ ACTIONS ══ -->
+<div id="tab-actions" class="tab-panel">
+  <div style="display:flex;gap:16px;margin-bottom:16px;flex-wrap:wrap;">
+    <div class="kpi-card" style="flex:0 0 auto;">
+      <div class="kpi-label">In Progress</div>
+      <div class="kpi-value kpi-blue">4</div>
+    </div>
+    <div class="kpi-card" style="flex:0 0 auto;">
+      <div class="kpi-label">Not Started</div>
+      <div class="kpi-value kpi-red">7</div>
+    </div>
+    <div class="kpi-card" style="flex:0 0 auto;">
+      <div class="kpi-label">Nearest Deadline</div>
+      <div class="kpi-value kpi-yellow" style="font-size:18px;">14-May</div>
+    </div>
+  </div>
+  <div class="action-list" id="action-list"></div>
+</div>
+
+</main>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────────
+// CLTC — Week Ending 05/02/2026
+// trend: [11-Apr, 18-Apr, 25-Apr, 2-May]
+const cltcData = [
+  {
+    site: 'Anderson',
+    auth: 988, worked: 823.5, lost: 164.5,
+    driver: 'Client-Driven',
+    obs: 'Stable loss tied to client availability patterns',
+    focus: 'Strengthen follow-up and rescheduling discipline',
+    risk: 'watch',
+    trend: [85, 89, 82, 83], trendDir: 'flat',
+    trendObs: 'Stabilizing after prior decline'
+  },
+  {
+    site: 'Beaufort',
+    auth: 1252, worked: 1070, lost: 182,
+    driver: 'Client-Driven (High Impact)',
+    obs: 'Improvement from prior week, but still high volume loss',
+    focus: 'Deep dive top clients and enforce engagement tracking',
+    risk: 'watch',
+    trend: [72, 69, 76, 85], trendDir: 'up',
+    trendObs: 'Strong improvement this week'
+  },
+  {
+    site: 'Charleston',
+    auth: 1089, worked: 852.1, lost: 236.9,
+    driver: 'Client-Driven',
+    obs: 'Increased missed hours vs prior week',
+    focus: 'Improve proactive client coordination',
+    risk: 'watch',
+    trend: [74, 78, 74, 78], trendDir: 'up',
+    trendObs: 'Recovery from prior dip'
+  },
+  {
+    site: 'Columbia & Aiken',
+    auth: 1772, worked: 1530.6, lost: 241.4,
+    driver: 'Client-Driven',
+    obs: 'Improved vs prior week but still high volume site',
+    focus: 'Strengthen case manager coordination and planning',
+    risk: 'watch',
+    trend: [86, 86, 81, 86], trendDir: 'up',
+    trendObs: 'Returned to stable high performance'
+  },
+  {
+    site: 'Greenville & Clinton',
+    auth: 219, worked: 163.2, lost: 55.8,
+    driver: 'Client-Driven',
+    obs: 'Increase in lost hours week-over-week',
+    focus: 'Focus on high-risk clients and refusals',
+    risk: 'watch',
+    trend: [77, 69, 83, 75], trendDir: 'down',
+    trendObs: 'Decline after prior recovery'
+  },
+  {
+    site: 'Greenwood',
+    auth: 160, worked: 129.3, lost: 30.7,
+    driver: 'Client-Driven',
+    obs: 'Increase in missed hours vs prior',
+    focus: 'Improve client communication and scheduling',
+    risk: 'watch',
+    trend: [87, 93, 91, 81], trendDir: 'down',
+    trendObs: 'Drop in performance this week'
+  },
+  {
+    site: 'Kingstree',
+    auth: 960.5, worked: 884.1, lost: 76.4,
+    driver: 'Client-Driven',
+    obs: 'Slight increase in lost hours',
+    focus: 'Maintain engagement and monitor repeat clients',
+    risk: 'stable',
+    trend: [89, 95, 95, 92], trendDir: 'down',
+    trendObs: 'Slight decline but still strong'
+  },
+  {
+    site: 'Sumter',
+    auth: 1007.5, worked: 933.3, lost: 74.2,
+    driver: 'Client-Driven',
+    obs: 'Improvement from prior week',
+    focus: 'Continue proactive scheduling and coordination',
+    risk: 'stable',
+    trend: [89, 90, 89, 93], trendDir: 'up',
+    trendObs: 'Strong improvement'
+  },
+  {
+    site: 'Spartanburg',
+    auth: 774.5, worked: 550.8, lost: 223.7,
+    driver: 'Client-Driven (High Risk)',
+    obs: 'Significant increase in missed hours — now a risk site',
+    focus: 'Immediate focus on client coordination and gap prevention',
+    risk: 'critical',
+    trend: [78, 71, 80, 71], trendDir: 'down',
+    trendObs: 'Decline, now a risk site'
+  },
+];
+
+// DDSN — Week Ending 05/02/2026
+// trend: [11-Apr, 18-Apr, 25-Apr, 2-May]
+const ddsnData = [
+  {
+    site: 'Anderson',
+    auth: 457.54, worked: 384, lost: 73.54,
+    driver: 'Operational',
+    obs: 'Increase in lost hours vs prior week indicates execution drop',
+    focus: 'Reinforce same-day coverage and schedule adherence',
+    risk: 'watch',
+    trend: [83, 90, 94, 84], trendDir: 'down',
+    trendObs: 'Drop from prior peak performance'
+  },
+  {
+    site: 'Beaufort',
+    auth: 635.75, worked: 495.25, lost: 140.5,
+    driver: 'Mixed (Leadership + Client)',
+    obs: 'High loss persists; prior leadership misalignment still a risk, but client factors also present',
+    focus: 'Enforce oversight + validate true breakdown (unstaffed vs refusal vs hold)',
+    risk: 'critical',
+    trend: [60, 77, 81, 78], trendDir: 'down',
+    trendObs: 'Slight regression after improvement',
+    escalation: true
+  },
+  {
+    site: 'Charleston',
+    auth: 469.55, worked: 424.5, lost: 45.05,
+    driver: 'Operational (Controlled)',
+    obs: 'Stable and controlled performance with minor gaps',
+    focus: 'Continue daily tracking and prevention model',
+    risk: 'stable',
+    trend: [102, 91, 90, 88], trendDir: 'down',
+    trendObs: 'Gradual decline, still controlled'
+  },
+  {
+    site: 'Columbia & Aiken',
+    auth: 357.7, worked: 294.75, lost: 62.95,
+    driver: 'Operational',
+    obs: 'Slight improvement but still consistent execution gaps',
+    focus: 'Strengthen scheduling discipline and coverage planning',
+    risk: 'watch',
+    trend: [81, 81, 80, 90], trendDir: 'up',
+    trendObs: 'Strong improvement'
+  },
+  {
+    site: 'Greenville & Clinton',
+    auth: 269.75, worked: 283.5, lost: -13.75,
+    driver: 'Overutilized',
+    obs: 'Worked exceeds auth, indicating possible overstaffing or data variance',
+    focus: 'Validate hours and prevent overutilization',
+    risk: 'watch',
+    trend: [94, 91, 79, 110], trendDir: 'up',
+    trendObs: 'Overutilization spike'
+  },
+  {
+    site: 'Greenwood',
+    auth: 0, worked: 0, lost: 0,
+    driver: 'No Activity',
+    obs: 'No DDSN activity recorded this week',
+    focus: 'Validate reporting status with Ops / PMO',
+    risk: 'stable',
+    trend: [null, null, 0, 0], trendDir: 'flat',
+    trendObs: 'No activity'
+  },
+  {
+    site: 'Kingstree',
+    auth: 203.77, worked: 166.5, lost: 37.27,
+    driver: 'Operational',
+    obs: 'Improvement from prior week but still moderate gap',
+    focus: 'Continue staffing stabilization',
+    risk: 'watch',
+    trend: [78, 78, 73, 82], trendDir: 'up',
+    trendObs: 'Improvement this week'
+  },
+  {
+    site: 'Sumter',
+    auth: 105.5, worked: 73.75, lost: 31.75,
+    driver: 'Operational (High %)',
+    obs: 'Still high % loss, though slightly improved vs prior week',
+    focus: 'Enforce same-day execution and staffing reliability',
+    risk: 'critical',
+    trend: [45, 81, 67, 70], trendDir: 'up',
+    trendObs: 'Slight improvement but still high loss'
+  },
+  {
+    site: 'Spartanburg',
+    auth: 487.27, worked: 440.5, lost: 46.77,
+    driver: 'Operational',
+    obs: 'Stable performance with moderate gap',
+    focus: 'Improve caregiver reliability and adherence',
+    risk: 'watch',
+    trend: [96, 90, 88, 93], trendDir: 'up',
+    trendObs: 'Recovery this week'
+  },
+];
+
+const actions = [
+  { site:'Beaufort', issue:'Leadership misalignment and high lost hours', action:'Enforce daily reporting and validate root cause breakdown', owner:'Supervisor + COS', status:'inprogress', deadline:'14-May', critical:true },
+  { site:'Beaufort', issue:'Lack of root cause visibility', action:'Provide full breakdown (unstaffed, refusal, hold, call-outs)', owner:'Supervisor', status:'notstarted', deadline:'14-May', critical:true },
+  { site:'Charleston', issue:'Inconsistent tracking', action:'Implement daily categorized tracking', owner:'Site Supervisor', status:'inprogress', deadline:'14-May', critical:false },
+  { site:'Charleston', issue:'Caregiver no-shows', action:'Identify repeat offenders and reduce dependency', owner:'Site Supervisor', status:'inprogress', deadline:'14-May', critical:false },
+  { site:'Columbia & Aiken', issue:'Scheduling gaps', action:'Enforce scheduling discipline and same-day validation', owner:'Site Supervisor', status:'notstarted', deadline:'14-May', critical:false },
+  { site:'Greenville & Clinton', issue:'Declining utilization', action:'Review staffing pipeline and coverage planning', owner:'Site Supervisor', status:'notstarted', deadline:'14-May', critical:false },
+  { site:'Sumter', issue:'High % loss', action:'Implement same-day execution control', owner:'Site Supervisor', status:'notstarted', deadline:'14-May', critical:false },
+  { site:'Kingstree', issue:'High % loss', action:'Stabilize staffing assignments', owner:'Site Supervisor', status:'notstarted', deadline:'14-May', critical:false },
+  { site:'Spartanburg', issue:'Execution gap (DDSN) + spike (CLTC)', action:'Improve reliability and client coordination', owner:'Site Supervisor', status:'inprogress', deadline:'14-May', critical:false },
+  { site:'Anderson', issue:'Increase in lost hours vs prior week', action:'Reinforce same-day coverage and schedule adherence', owner:'Site Supervisor', status:'notstarted', deadline:'14-May', critical:false },
+  { site:'Greenwood', issue:'No DDSN activity', action:'Validate reporting status', owner:'Ops / PMO', status:'notstarted', deadline:'14-May', critical:false },
+];
+
+// ── HELPERS ───────────────────────────────────────────────────────
+function pct(worked, auth) {
+  if (!auth) return 0;
+  return Math.round((worked / auth) * 100);
+}
+function barColor(p) {
+  if (p >= 90) return 'bar-green';
+  if (p >= 75) return 'bar-yellow';
+  return 'bar-red';
+}
+function trendIcon(dir) {
+  if (dir === 'up') return '<span class="trend-up">↑</span>';
+  if (dir === 'down') return '<span class="trend-down">↓</span>';
+  return '<span class="trend-flat">→</span>';
+}
+
+// ── RENDER SITE CARDS ─────────────────────────────────────────────
+function renderCards(data, gridId) {
+  const grid = document.getElementById(gridId);
+  grid.innerHTML = '';
+  data.forEach((d, i) => {
+    const p = pct(d.worked, d.auth);
+    const bc = barColor(p);
+    const badge = d.risk === 'critical' ? '<span class="risk-badge badge-critical">Critical</span>'
+                : d.risk === 'watch'    ? '<span class="risk-badge badge-watch">Watch</span>'
+                :                         '<span class="risk-badge badge-stable">Stable</span>';
+    const escBanner = d.escalation ? `<div style="background:rgba(248,81,73,0.08);border:1px solid rgba(248,81,73,0.3);border-radius:4px;padding:6px 10px;font-size:11px;color:var(--red);margin-bottom:10px;">⚠ Escalation Required — Supervisor + Chief of Staff</div>` : '';
+    const lostDisplay = d.lost < 0 ? `<span style="color:var(--purple)">${d.lost}h ↑</span>` : d.lost + 'h';
+    grid.innerHTML += `
+      <div class="site-card risk-${d.risk}" style="animation-delay:${i*0.04}s" data-risk="${d.risk}">
+        ${escBanner}
+        <div class="site-header">
+          <span class="site-name">${d.site}</span>
+          ${badge}
+        </div>
+        <div class="util-row">
+          <span class="util-label">UTIL</span>
+          <div class="bar-track"><div class="bar-fill ${bc}" style="width:${Math.min(p,110)}%"></div></div>
+          <span class="util-pct" style="color:${bc==='bar-green'?'var(--green)':bc==='bar-yellow'?'var(--yellow)':'var(--red)'}">${p}%</span>
+        </div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.4;">${d.obs}</div>
+        <div style="font-size:11px;color:var(--accent);line-height:1.4;"><strong style="color:var(--muted)">Action: </strong>${d.focus}</div>
+        <div class="site-stats">
+          <div class="stat-item">
+            <div class="stat-label">Auth Hrs</div>
+            <div class="stat-value" style="color:var(--muted)">${d.auth}</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Worked</div>
+            <div class="stat-value" style="color:var(--green)">${d.worked}</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Lost</div>
+            <div class="stat-value" style="color:${d.lost<0?'var(--purple)':'var(--red)'}">${d.lost < 0 ? d.lost + ' ↑' : d.lost}</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Trend</div>
+            <div class="stat-value">${trendIcon(d.trendDir)}</div>
+          </div>
+        </div>
+      </div>`;
+  });
+}
+
+// ── FILTER CARDS ──────────────────────────────────────────────────
+function filterCards(type, risk, btn) {
+  const grid = document.getElementById(type + '-grid');
+  const cards = grid.querySelectorAll('.site-card');
+  cards.forEach(c => {
+    c.style.display = (risk === 'all' || c.dataset.risk === risk) ? '' : 'none';
+  });
+  const btns = document.querySelectorAll('#' + type + '-filters .filter-btn');
+  btns.forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ── RENDER TREND TABLES ───────────────────────────────────────────
+function renderTrendTable(data, tableId) {
+  const table = document.getElementById(tableId);
+  table.innerHTML = `<thead><tr>
+    <th>Site</th>
+    <th>11-Apr</th><th>18-Apr</th><th>25-Apr</th><th>2-May</th>
+    <th>Sparkline</th>
+    <th>Trend</th>
+    <th>Observation</th>
+  </tr></thead><tbody>${data.map(d => {
+    const vals = d.trend;
+    const nonNull = vals.filter(v => v !== null);
+    const maxV = nonNull.length ? Math.max(...nonNull) : 1;
+    const latest = vals[3];
+    const latestColor = latest === null ? 'var(--muted)' : latest >= 90 ? 'var(--green)' : latest >= 75 ? 'var(--yellow)' : 'var(--red)';
+    const sparkBars = vals.map(v => {
+      if (v === null) return `<div class="spark-bar" style="height:2px;background:var(--border)"></div>`;
+      const h = maxV ? Math.round((v / maxV) * 22) + 2 : 2;
+      const col = v >= 90 ? 'var(--green)' : v >= 75 ? 'var(--yellow)' : 'var(--red)';
+      return `<div class="spark-bar" style="height:${h}px;background:${col}"></div>`;
+    }).join('');
+    return `<tr>
+      <td class="td-site">${d.site}</td>
+      ${vals.map((v, i) => `<td class="td-pct" ${i === 3 ? `style="color:${latestColor};font-weight:600"` : ''}>${v !== null ? v + '%' : '—'}</td>`).join('')}
+      <td class="spark-cell"><div class="spark">${sparkBars}</div></td>
+      <td>${trendIcon(d.trendDir)}</td>
+      <td style="color:var(--muted);font-size:11px;max-width:200px">${d.trendObs || d.obs}</td>
+    </tr>`;
+  }).join('')}</tbody>`;
+}
+
+// ── RENDER ACTION TRACKER ─────────────────────────────────────────
+function renderActions() {
+  const list = document.getElementById('action-list');
+  list.innerHTML = actions.map(a => `
+    <div class="action-item ${a.critical ? 'critical-item' : ''}">
+      <div class="action-site">${a.site} ${a.critical ? '<span style="font-size:10px;color:var(--red)">⚠</span>' : ''}</div>
+      <div class="action-issue">${a.issue}</div>
+      <div class="action-text">${a.action}</div>
+      <div><span class="status-pill status-${a.status}">${a.status === 'inprogress' ? 'In Progress' : 'Not Started'}</span></div>
+      <div class="deadline-cell">📅 ${a.deadline}</div>
+    </div>`).join('');
+}
+
+// ── RENDER OVERVIEW BARS ──────────────────────────────────────────
+function renderHBar(data, containerId) {
+  const eligible = data.filter(d => d.lost > 0);
+  const maxLost = Math.max(...eligible.map(d => d.lost));
+  const el = document.getElementById(containerId);
+  el.innerHTML = eligible.sort((a, b) => b.lost - a.lost).map(d => {
+    const w = Math.round((d.lost / maxLost) * 100);
+    const col = d.risk === 'critical' ? 'var(--red)' : d.risk === 'watch' ? 'var(--yellow)' : 'var(--green)';
+    return `<div class="hbar-row">
+      <span class="hbar-label">${d.site}</span>
+      <div class="hbar-track"><div class="hbar-fill" style="width:${w}%;background:${col}"></div></div>
+      <span class="hbar-val">${d.lost}h</span>
+    </div>`;
+  }).join('');
+}
+
+// ── TAB SWITCHING ─────────────────────────────────────────────────
+function switchTab(name, e) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  e.target.classList.add('active');
+}
+
+// ── INIT ──────────────────────────────────────────────────────────
+renderCards(cltcData, 'cltc-grid');
+renderCards(ddsnData, 'ddsn-grid');
+renderTrendTable(cltcData, 'cltc-trend-table');
+renderTrendTable(ddsnData, 'ddsn-trend-table');
+renderActions();
+renderHBar(cltcData, 'cltc-hbar');
+renderHBar(ddsnData, 'ddsn-hbar');
+</script>
+</body>
+</html>
