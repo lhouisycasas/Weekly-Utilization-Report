@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Executive Utilization & Recovery Report — Week Ending 04/25/2026</title>
+<title>Executive Utilization & Recovery Report — Week Ending 05/02/2026</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -542,15 +542,15 @@
     <h1>Executive Utilization &amp; Recovery Report</h1>
     <p>DDSN &amp; CLTC // Multi-Site Performance Dashboard</p>
   </div>
-  <span class="week-badge">WEEK ENDING 04/25/2026</span>
+  <span class="week-badge">WEEK ENDING 05/02/2026</span>
 </header>
 
 <nav class="tab-nav">
-  <button class="tab-btn active" onclick="switchTab('overview')">Overview</button>
-  <button class="tab-btn" onclick="switchTab('cltc')">CLTC Sites</button>
-  <button class="tab-btn" onclick="switchTab('ddsn')">DDSN Sites</button>
-  <button class="tab-btn" onclick="switchTab('trends')">Trends</button>
-  <button class="tab-btn" onclick="switchTab('actions')">Action Tracker</button>
+  <button class="tab-btn active" onclick="switchTab('overview',event)">Overview</button>
+  <button class="tab-btn" onclick="switchTab('cltc',event)">CLTC Sites</button>
+  <button class="tab-btn" onclick="switchTab('ddsn',event)">DDSN Sites</button>
+  <button class="tab-btn" onclick="switchTab('trends',event)">Trends</button>
+  <button class="tab-btn" onclick="switchTab('actions',event)">Action Tracker</button>
 </nav>
 
 <main>
@@ -561,36 +561,36 @@
   <div class="kpi-grid">
     <div class="kpi-card">
       <div class="kpi-label">Total CLTC Auth Hrs</div>
-      <div class="kpi-value kpi-blue">8,150.5</div>
+      <div class="kpi-value kpi-blue">8,223.5</div>
       <div class="kpi-sub">Across 9 active sites</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-label">CLTC Lost Hours</div>
-      <div class="kpi-value kpi-red">1,471.4</div>
-      <div class="kpi-sub">18.1% of authorized</div>
+      <div class="kpi-value kpi-red">1,285.6</div>
+      <div class="kpi-sub">15.6% of authorized</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-label">Total DDSN Auth Hrs</div>
-      <div class="kpi-value kpi-blue">2,987.7</div>
+      <div class="kpi-value kpi-blue">3,016.8</div>
       <div class="kpi-sub">8 active sites</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-label">DDSN Lost Hours</div>
-      <div class="kpi-value kpi-red">470.5</div>
-      <div class="kpi-sub">15.7% of authorized</div>
+      <div class="kpi-value kpi-red">424.1</div>
+      <div class="kpi-sub">14.1% of authorized</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-label">Sites at Risk</div>
-      <div class="kpi-value kpi-yellow">4</div>
-      <div class="kpi-sub">Beaufort, Sumter, G&C, Kingstree</div>
+      <div class="kpi-value kpi-yellow">3</div>
+      <div class="kpi-sub">Beaufort, Spartanburg, Sumter</div>
     </div>
   </div>
 
   <div class="risk-banner">
     <span class="icon">⚠</span>
     <div>
-      <strong>Beaufort DDSN — Leadership Escalation Required</strong>
-      <span> · Leadership misalignment and resistance to data-driven accountability. Requires immediate Chief of Staff + Head of Supervisors intervention. Deadline: 5-May.</span>
+      <strong>Spartanburg CLTC — Emerging High Risk</strong>
+      <span> · Significant week-over-week spike in missed hours. Immediate focus on client coordination and gap prevention required. Deadline: 14-May.</span>
     </div>
   </div>
 
@@ -609,11 +609,12 @@
     <div class="overview-card" style="animation-delay:0.1s">
       <h3>Executive Summary</h3>
       <ul class="summary-bullets">
-        <li><strong>DDSN lost hours</strong> are driven primarily by operational execution gaps, with highest impact in Beaufort, Sumter, and Columbia &amp; Aiken.</li>
-        <li><strong>CLTC losses</strong> remain largely client-driven, particularly in Columbia &amp; Aiken and Beaufort.</li>
-        <li><strong>Charleston</strong> shows strongest recovery readiness due to supervisor engagement and active tracking.</li>
-        <li><strong>Beaufort</strong> presents elevated risk due to leadership misalignment requiring immediate oversight.</li>
-        <li>Given DDSN constraints, lost hours are largely <strong>non-recoverable</strong>, shifting focus to prevention and same-day execution.</li>
+        <li><strong>DDSN lost hours</strong> remain primarily operational, with highest impact in Beaufort, Anderson, and Columbia &amp; Aiken.</li>
+        <li><strong>CLTC losses</strong> continue to be client-driven, with elevated impact in Columbia &amp; Aiken, Charleston, and Spartanburg.</li>
+        <li><strong>Spartanburg (CLTC)</strong> shows a notable increase in missed hours, indicating emerging risk.</li>
+        <li><strong>Beaufort</strong> remains a dual-risk site with both performance gaps and ongoing leadership alignment concerns.</li>
+        <li><strong>Charleston</strong> continues stable, controlled performance with strong supervisor engagement.</li>
+        <li>Under DDSN policy, lost hours are largely <strong>non-recoverable</strong>, requiring strict focus on same-day execution and prevention.</li>
       </ul>
     </div>
     <div class="overview-card" style="animation-delay:0.15s">
@@ -622,29 +623,29 @@
         <div>
           <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
             <span style="font-size:12px;color:var(--red)">● Critical / At Risk</span>
-            <span style="font-family:var(--mono);font-size:12px;color:var(--muted)">Beaufort (both), Sumter DDSN</span>
+            <span style="font-family:var(--mono);font-size:12px;color:var(--muted)">Beaufort DDSN, Spartanburg CLTC</span>
           </div>
-          <div class="bar-track"><div class="bar-fill bar-red" style="width:33%"></div></div>
+          <div class="bar-track"><div class="bar-fill bar-red" style="width:22%"></div></div>
         </div>
         <div>
           <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
             <span style="font-size:12px;color:var(--yellow)">● Watch / Operational Gap</span>
-            <span style="font-family:var(--mono);font-size:12px;color:var(--muted)">Columbia, G&C, Kingstree</span>
+            <span style="font-family:var(--mono);font-size:12px;color:var(--muted)">Columbia, Charleston, Anderson</span>
           </div>
-          <div class="bar-track"><div class="bar-fill bar-yellow" style="width:50%"></div></div>
+          <div class="bar-track"><div class="bar-fill bar-yellow" style="width:55%"></div></div>
         </div>
         <div>
           <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
             <span style="font-size:12px;color:var(--green)">● Stable / Controlled</span>
-            <span style="font-family:var(--mono);font-size:12px;color:var(--muted)">Greenwood, Kingstree CLTC</span>
+            <span style="font-family:var(--mono);font-size:12px;color:var(--muted)">Charleston DDSN, Kingstree CLTC</span>
           </div>
-          <div class="bar-track"><div class="bar-fill bar-green" style="width:20%"></div></div>
+          <div class="bar-track"><div class="bar-fill bar-green" style="width:22%"></div></div>
         </div>
         <div style="margin-top:8px;padding-top:12px;border-top:1px solid var(--border)">
           <div style="font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">Open Actions Status</div>
           <div style="display:flex;gap:16px;">
-            <div><span style="font-family:var(--mono);font-size:20px;font-weight:600;color:var(--accent)">3</span><div style="font-size:11px;color:var(--muted)">In Progress</div></div>
-            <div><span style="font-family:var(--mono);font-size:20px;font-weight:600;color:var(--red)">6</span><div style="font-size:11px;color:var(--muted)">Not Started</div></div>
+            <div><span style="font-family:var(--mono);font-size:20px;font-weight:600;color:var(--accent)">4</span><div style="font-size:11px;color:var(--muted)">In Progress</div></div>
+            <div><span style="font-family:var(--mono);font-size:20px;font-weight:600;color:var(--red)">7</span><div style="font-size:11px;color:var(--muted)">Not Started</div></div>
           </div>
         </div>
       </div>
@@ -691,15 +692,15 @@
   <div style="display:flex;gap:16px;margin-bottom:16px;flex-wrap:wrap;">
     <div class="kpi-card" style="flex:0 0 auto;">
       <div class="kpi-label">In Progress</div>
-      <div class="kpi-value kpi-blue">3</div>
+      <div class="kpi-value kpi-blue">4</div>
     </div>
     <div class="kpi-card" style="flex:0 0 auto;">
       <div class="kpi-label">Not Started</div>
-      <div class="kpi-value kpi-red">6</div>
+      <div class="kpi-value kpi-red">7</div>
     </div>
     <div class="kpi-card" style="flex:0 0 auto;">
       <div class="kpi-label">Nearest Deadline</div>
-      <div class="kpi-value kpi-yellow" style="font-size:18px;">4-May</div>
+      <div class="kpi-value kpi-yellow" style="font-size:18px;">14-May</div>
     </div>
   </div>
   <div class="action-list" id="action-list"></div>
@@ -709,40 +710,209 @@
 
 <script>
 // ── DATA ──────────────────────────────────────────────────────────
+// CLTC — Week Ending 05/02/2026
+// trend: [11-Apr, 18-Apr, 25-Apr, 2-May]
 const cltcData = [
-  { site:'Anderson', auth:976, worked:799.3, lost:176.7, driver:'Client-Driven', obs:'High missed hours driven by client availability', focus:'Strengthen client follow-up and rescheduling discipline', risk:'watch', trend:[85,85,89,82], trendDir:'down' },
-  { site:'Beaufort', auth:1222, worked:928.8, lost:293.2, driver:'Client-Driven (High Impact)', obs:'One of the highest loss sites driven by refusals and availability', focus:'Deep dive on top clients, enforce engagement and tracking', risk:'critical', trend:[72,72,69,76], trendDir:'up' },
-  { site:'Charleston', auth:1086, worked:805.3, lost:280.7, driver:'Client-Driven', obs:'Significant gap with mixed client constraints', focus:'Improve proactive planning and client coordination', risk:'watch', trend:[74,74,78,74], trendDir:'down' },
-  { site:'Columbia & Aiken', auth:1797, worked:1447.9, lost:349.1, driver:'Client-Driven', obs:'Large volume site with consistent client-related loss', focus:'Strengthen case coordination and schedule planning', risk:'watch', trend:[86,86,86,81], trendDir:'down' },
-  { site:'Greenville & Clinton', auth:219, worked:182.5, lost:36.5, driver:'Client-Driven (Low)', obs:'Relatively controlled performance', focus:'Maintain client engagement and monitoring', risk:'stable', trend:[77,77,69,83], trendDir:'up' },
-  { site:'Greenwood', auth:160, worked:145.4, lost:14.6, driver:'Client-Driven (Low)', obs:'Minimal gap', focus:'Sustain performance', risk:'stable', trend:[87,87,93,91], trendDir:'flat' },
-  { site:'Kingstree', auth:930.5, worked:879.7, lost:50.8, driver:'Client-Driven', obs:'Strong performance with minor gaps', focus:'Maintain and monitor repeat clients', risk:'stable', trend:[89,89,95,95], trendDir:'flat' },
-  { site:'Sumter', auth:1001.5, worked:886.4, lost:115.1, driver:'Client-Driven', obs:'Moderate gap driven by availability issues', focus:'Improve client scheduling and communication', risk:'watch', trend:[89,89,90,89], trendDir:'flat' },
-  { site:'Spartanburg', auth:758.5, worked:603.8, lost:154.7, driver:'Client-Driven', obs:'Noticeable gap relative to size', focus:'Strengthen client coordination and planning', risk:'watch', trend:[78,78,71,80], trendDir:'up' },
+  {
+    site: 'Anderson',
+    auth: 988, worked: 823.5, lost: 164.5,
+    driver: 'Client-Driven',
+    obs: 'Stable loss tied to client availability patterns',
+    focus: 'Strengthen follow-up and rescheduling discipline',
+    risk: 'watch',
+    trend: [85, 89, 82, 83], trendDir: 'flat',
+    trendObs: 'Stabilizing after prior decline'
+  },
+  {
+    site: 'Beaufort',
+    auth: 1252, worked: 1070, lost: 182,
+    driver: 'Client-Driven (High Impact)',
+    obs: 'Improvement from prior week, but still high volume loss',
+    focus: 'Deep dive top clients and enforce engagement tracking',
+    risk: 'watch',
+    trend: [72, 69, 76, 85], trendDir: 'up',
+    trendObs: 'Strong improvement this week'
+  },
+  {
+    site: 'Charleston',
+    auth: 1089, worked: 852.1, lost: 236.9,
+    driver: 'Client-Driven',
+    obs: 'Increased missed hours vs prior week',
+    focus: 'Improve proactive client coordination',
+    risk: 'watch',
+    trend: [74, 78, 74, 78], trendDir: 'up',
+    trendObs: 'Recovery from prior dip'
+  },
+  {
+    site: 'Columbia & Aiken',
+    auth: 1772, worked: 1530.6, lost: 241.4,
+    driver: 'Client-Driven',
+    obs: 'Improved vs prior week but still high volume site',
+    focus: 'Strengthen case manager coordination and planning',
+    risk: 'watch',
+    trend: [86, 86, 81, 86], trendDir: 'up',
+    trendObs: 'Returned to stable high performance'
+  },
+  {
+    site: 'Greenville & Clinton',
+    auth: 219, worked: 163.2, lost: 55.8,
+    driver: 'Client-Driven',
+    obs: 'Increase in lost hours week-over-week',
+    focus: 'Focus on high-risk clients and refusals',
+    risk: 'watch',
+    trend: [77, 69, 83, 75], trendDir: 'down',
+    trendObs: 'Decline after prior recovery'
+  },
+  {
+    site: 'Greenwood',
+    auth: 160, worked: 129.3, lost: 30.7,
+    driver: 'Client-Driven',
+    obs: 'Increase in missed hours vs prior',
+    focus: 'Improve client communication and scheduling',
+    risk: 'watch',
+    trend: [87, 93, 91, 81], trendDir: 'down',
+    trendObs: 'Drop in performance this week'
+  },
+  {
+    site: 'Kingstree',
+    auth: 960.5, worked: 884.1, lost: 76.4,
+    driver: 'Client-Driven',
+    obs: 'Slight increase in lost hours',
+    focus: 'Maintain engagement and monitor repeat clients',
+    risk: 'stable',
+    trend: [89, 95, 95, 92], trendDir: 'down',
+    trendObs: 'Slight decline but still strong'
+  },
+  {
+    site: 'Sumter',
+    auth: 1007.5, worked: 933.3, lost: 74.2,
+    driver: 'Client-Driven',
+    obs: 'Improvement from prior week',
+    focus: 'Continue proactive scheduling and coordination',
+    risk: 'stable',
+    trend: [89, 90, 89, 93], trendDir: 'up',
+    trendObs: 'Strong improvement'
+  },
+  {
+    site: 'Spartanburg',
+    auth: 774.5, worked: 550.8, lost: 223.7,
+    driver: 'Client-Driven (High Risk)',
+    obs: 'Significant increase in missed hours — now a risk site',
+    focus: 'Immediate focus on client coordination and gap prevention',
+    risk: 'critical',
+    trend: [78, 71, 80, 71], trendDir: 'down',
+    trendObs: 'Decline, now a risk site'
+  },
 ];
 
+// DDSN — Week Ending 05/02/2026
+// trend: [11-Apr, 18-Apr, 25-Apr, 2-May]
 const ddsnData = [
-  { site:'Anderson', auth:457.54, worked:430.75, lost:26.79, driver:'Operational (Low)', obs:'Controlled gap, strong utilization', focus:'Maintain staffing consistency and adherence', risk:'stable', trend:[83,83,90,94], trendDir:'up' },
-  { site:'Beaufort', auth:635.75, worked:512.25, lost:123.5, driver:'Misaligned / At Risk', obs:'Leadership misalignment and resistance to data-driven accountability', focus:'Enforce oversight, validate root cause breakdown, implement daily reporting cadence', risk:'critical', trend:[60,60,77,81], trendDir:'up', escalation:true },
-  { site:'Charleston', auth:470.43, worked:423.75, lost:46.68, driver:'Operational (Structured)', obs:'Engaged supervisor with active tracking and root cause awareness', focus:'Implement daily tracking, enforce categorization, improve caregiver reliability', risk:'watch', trend:[102,102,91,90], trendDir:'down' },
-  { site:'Columbia & Aiken', auth:357.7, worked:287.25, lost:70.45, driver:'Operational', obs:'Consistent execution gaps across scheduling', focus:'Enforce scheduling discipline and same-day coverage control', risk:'watch', trend:[81,81,81,80], trendDir:'flat' },
-  { site:'Greenville & Clinton', auth:269.75, worked:212.5, lost:57.25, driver:'Operational', obs:'Underperformance relative to size', focus:'Improve staffing pipeline and proactive coverage planning', risk:'watch', trend:[94,94,91,79], trendDir:'down' },
-  { site:'Greenwood', auth:0, worked:0, lost:0, driver:'No Activity', obs:'No DDSN activity recorded', focus:'—', risk:'stable', trend:[null,null,null,0], trendDir:'flat' },
-  { site:'Kingstree', auth:203.77, worked:149.75, lost:54.02, driver:'Operational', obs:'High % loss relative to total hours', focus:'Stabilize staffing and improve assignment planning', risk:'watch', trend:[78,78,78,73], trendDir:'down' },
-  { site:'Sumter', auth:105.5, worked:71, lost:34.5, driver:'Operational (High %)', obs:'Highest percentage loss across sites', focus:'Immediate same-day coverage enforcement and staffing stabilization', risk:'critical', trend:[45,45,81,67], trendDir:'down' },
-  { site:'Spartanburg', auth:487.27, worked:430, lost:57.27, driver:'Operational', obs:'Moderate but persistent gap', focus:'Improve coverage reliability and reduce missed visits', risk:'watch', trend:[96,96,90,88], trendDir:'down' },
+  {
+    site: 'Anderson',
+    auth: 457.54, worked: 384, lost: 73.54,
+    driver: 'Operational',
+    obs: 'Increase in lost hours vs prior week indicates execution drop',
+    focus: 'Reinforce same-day coverage and schedule adherence',
+    risk: 'watch',
+    trend: [83, 90, 94, 84], trendDir: 'down',
+    trendObs: 'Drop from prior peak performance'
+  },
+  {
+    site: 'Beaufort',
+    auth: 635.75, worked: 495.25, lost: 140.5,
+    driver: 'Mixed (Leadership + Client)',
+    obs: 'High loss persists; prior leadership misalignment still a risk, but client factors also present',
+    focus: 'Enforce oversight + validate true breakdown (unstaffed vs refusal vs hold)',
+    risk: 'critical',
+    trend: [60, 77, 81, 78], trendDir: 'down',
+    trendObs: 'Slight regression after improvement',
+    escalation: true
+  },
+  {
+    site: 'Charleston',
+    auth: 469.55, worked: 424.5, lost: 45.05,
+    driver: 'Operational (Controlled)',
+    obs: 'Stable and controlled performance with minor gaps',
+    focus: 'Continue daily tracking and prevention model',
+    risk: 'stable',
+    trend: [102, 91, 90, 88], trendDir: 'down',
+    trendObs: 'Gradual decline, still controlled'
+  },
+  {
+    site: 'Columbia & Aiken',
+    auth: 357.7, worked: 294.75, lost: 62.95,
+    driver: 'Operational',
+    obs: 'Slight improvement but still consistent execution gaps',
+    focus: 'Strengthen scheduling discipline and coverage planning',
+    risk: 'watch',
+    trend: [81, 81, 80, 90], trendDir: 'up',
+    trendObs: 'Strong improvement'
+  },
+  {
+    site: 'Greenville & Clinton',
+    auth: 269.75, worked: 283.5, lost: -13.75,
+    driver: 'Overutilized',
+    obs: 'Worked exceeds auth, indicating possible overstaffing or data variance',
+    focus: 'Validate hours and prevent overutilization',
+    risk: 'watch',
+    trend: [94, 91, 79, 110], trendDir: 'up',
+    trendObs: 'Overutilization spike'
+  },
+  {
+    site: 'Greenwood',
+    auth: 0, worked: 0, lost: 0,
+    driver: 'No Activity',
+    obs: 'No DDSN activity recorded this week',
+    focus: 'Validate reporting status with Ops / PMO',
+    risk: 'stable',
+    trend: [null, null, 0, 0], trendDir: 'flat',
+    trendObs: 'No activity'
+  },
+  {
+    site: 'Kingstree',
+    auth: 203.77, worked: 166.5, lost: 37.27,
+    driver: 'Operational',
+    obs: 'Improvement from prior week but still moderate gap',
+    focus: 'Continue staffing stabilization',
+    risk: 'watch',
+    trend: [78, 78, 73, 82], trendDir: 'up',
+    trendObs: 'Improvement this week'
+  },
+  {
+    site: 'Sumter',
+    auth: 105.5, worked: 73.75, lost: 31.75,
+    driver: 'Operational (High %)',
+    obs: 'Still high % loss, though slightly improved vs prior week',
+    focus: 'Enforce same-day execution and staffing reliability',
+    risk: 'critical',
+    trend: [45, 81, 67, 70], trendDir: 'up',
+    trendObs: 'Slight improvement but still high loss'
+  },
+  {
+    site: 'Spartanburg',
+    auth: 487.27, worked: 440.5, lost: 46.77,
+    driver: 'Operational',
+    obs: 'Stable performance with moderate gap',
+    focus: 'Improve caregiver reliability and adherence',
+    risk: 'watch',
+    trend: [96, 90, 88, 93], trendDir: 'up',
+    trendObs: 'Recovery this week'
+  },
 ];
 
 const actions = [
-  { site:'Beaufort', issue:'Leadership misalignment and high lost hours', action:'Enforce daily reporting (lost hours + root cause), validate data breakdown, implement leadership oversight', owner:'Supervisor + Chief of Staff + Head of Supervisors', status:'inprogress', deadline:'5-May', critical:true },
-  { site:'Beaufort', issue:'Lack of root cause visibility', action:'Provide full breakdown (unstaffed, refusal, hold, call-outs) and require acknowledgment', owner:'Supervisor', status:'notstarted', deadline:'4-May', critical:true },
-  { site:'Charleston', issue:'Inconsistent tracking of missed visits', action:'Implement daily tracking (lost vs not worked, categorized by driver)', owner:'Site Supervisor', status:'inprogress', deadline:'4-May', critical:false },
-  { site:'Charleston', issue:'Caregiver no-shows impacting service', action:'Identify repeat offenders and reduce dependency on unreliable staff', owner:'Site Supervisor', status:'inprogress', deadline:'6-May', critical:false },
-  { site:'Columbia & Aiken', issue:'Persistent scheduling gaps', action:'Enforce scheduling discipline and same-day coverage validation', owner:'Site Supervisor', status:'notstarted', deadline:'7-May', critical:false },
-  { site:'Greenville & Clinton', issue:'Declining utilization trend', action:'Review staffing pipeline and coverage planning for high-risk clients', owner:'Site Supervisor', status:'notstarted', deadline:'7-May', critical:false },
-  { site:'Sumter', issue:'Highest % loss across sites', action:'Implement immediate same-day coverage control and daily reporting', owner:'Site Supervisor', status:'notstarted', deadline:'5-May', critical:false },
-  { site:'Kingstree', issue:'High % loss relative to size', action:'Stabilize staffing assignments and reduce missed visits', owner:'Site Supervisor', status:'notstarted', deadline:'7-May', critical:false },
-  { site:'Spartanburg', issue:'Moderate but consistent execution gap', action:'Improve caregiver reliability and daily schedule adherence', owner:'Site Supervisor', status:'notstarted', deadline:'8-May', critical:false },
+  { site:'Beaufort', issue:'Leadership misalignment and high lost hours', action:'Enforce daily reporting and validate root cause breakdown', owner:'Supervisor + COS', status:'inprogress', deadline:'14-May', critical:true },
+  { site:'Beaufort', issue:'Lack of root cause visibility', action:'Provide full breakdown (unstaffed, refusal, hold, call-outs)', owner:'Supervisor', status:'notstarted', deadline:'14-May', critical:true },
+  { site:'Charleston', issue:'Inconsistent tracking', action:'Implement daily categorized tracking', owner:'Site Supervisor', status:'inprogress', deadline:'14-May', critical:false },
+  { site:'Charleston', issue:'Caregiver no-shows', action:'Identify repeat offenders and reduce dependency', owner:'Site Supervisor', status:'inprogress', deadline:'14-May', critical:false },
+  { site:'Columbia & Aiken', issue:'Scheduling gaps', action:'Enforce scheduling discipline and same-day validation', owner:'Site Supervisor', status:'notstarted', deadline:'14-May', critical:false },
+  { site:'Greenville & Clinton', issue:'Declining utilization', action:'Review staffing pipeline and coverage planning', owner:'Site Supervisor', status:'notstarted', deadline:'14-May', critical:false },
+  { site:'Sumter', issue:'High % loss', action:'Implement same-day execution control', owner:'Site Supervisor', status:'notstarted', deadline:'14-May', critical:false },
+  { site:'Kingstree', issue:'High % loss', action:'Stabilize staffing assignments', owner:'Site Supervisor', status:'notstarted', deadline:'14-May', critical:false },
+  { site:'Spartanburg', issue:'Execution gap (DDSN) + spike (CLTC)', action:'Improve reliability and client coordination', owner:'Site Supervisor', status:'inprogress', deadline:'14-May', critical:false },
+  { site:'Anderson', issue:'Increase in lost hours vs prior week', action:'Reinforce same-day coverage and schedule adherence', owner:'Site Supervisor', status:'notstarted', deadline:'14-May', critical:false },
+  { site:'Greenwood', issue:'No DDSN activity', action:'Validate reporting status', owner:'Ops / PMO', status:'notstarted', deadline:'14-May', critical:false },
 ];
 
 // ── HELPERS ───────────────────────────────────────────────────────
@@ -771,7 +941,8 @@ function renderCards(data, gridId) {
     const badge = d.risk === 'critical' ? '<span class="risk-badge badge-critical">Critical</span>'
                 : d.risk === 'watch'    ? '<span class="risk-badge badge-watch">Watch</span>'
                 :                         '<span class="risk-badge badge-stable">Stable</span>';
-    const escBanner = d.escalation ? `<div style="background:rgba(248,81,73,0.08);border:1px solid rgba(248,81,73,0.3);border-radius:4px;padding:6px 10px;font-size:11px;color:var(--red);margin-bottom:10px;">⚠ Escalation Required — Chief of Staff + Head of Supervisors</div>` : '';
+    const escBanner = d.escalation ? `<div style="background:rgba(248,81,73,0.08);border:1px solid rgba(248,81,73,0.3);border-radius:4px;padding:6px 10px;font-size:11px;color:var(--red);margin-bottom:10px;">⚠ Escalation Required — Supervisor + Chief of Staff</div>` : '';
+    const lostDisplay = d.lost < 0 ? `<span style="color:var(--purple)">${d.lost}h ↑</span>` : d.lost + 'h';
     grid.innerHTML += `
       <div class="site-card risk-${d.risk}" style="animation-delay:${i*0.04}s" data-risk="${d.risk}">
         ${escBanner}
@@ -781,7 +952,7 @@ function renderCards(data, gridId) {
         </div>
         <div class="util-row">
           <span class="util-label">UTIL</span>
-          <div class="bar-track"><div class="bar-fill ${bc}" style="width:${p}%"></div></div>
+          <div class="bar-track"><div class="bar-fill ${bc}" style="width:${Math.min(p,110)}%"></div></div>
           <span class="util-pct" style="color:${bc==='bar-green'?'var(--green)':bc==='bar-yellow'?'var(--yellow)':'var(--red)'}">${p}%</span>
         </div>
         <div style="font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.4;">${d.obs}</div>
@@ -797,7 +968,7 @@ function renderCards(data, gridId) {
           </div>
           <div class="stat-item">
             <div class="stat-label">Lost</div>
-            <div class="stat-value" style="color:var(--red)">${d.lost}</div>
+            <div class="stat-value" style="color:${d.lost<0?'var(--purple)':'var(--red)'}">${d.lost < 0 ? d.lost + ' ↑' : d.lost}</div>
           </div>
           <div class="stat-item">
             <div class="stat-label">Trend</div>
@@ -822,35 +993,31 @@ function filterCards(type, risk, btn) {
 
 // ── RENDER TREND TABLES ───────────────────────────────────────────
 function renderTrendTable(data, tableId) {
-  const weeks = ['4-Apr','11-Apr','18-Apr','25-Apr'];
   const table = document.getElementById(tableId);
   table.innerHTML = `<thead><tr>
     <th>Site</th>
-    <th>4-Apr</th><th>11-Apr</th><th>18-Apr</th><th>25-Apr</th>
+    <th>11-Apr</th><th>18-Apr</th><th>25-Apr</th><th>2-May</th>
     <th>Sparkline</th>
     <th>Trend</th>
     <th>Observation</th>
   </tr></thead><tbody>${data.map(d => {
     const vals = d.trend;
-    const maxV = Math.max(...vals.filter(v=>v!==null));
+    const nonNull = vals.filter(v => v !== null);
+    const maxV = nonNull.length ? Math.max(...nonNull) : 1;
     const latest = vals[3];
-    const latestColor = latest >= 90 ? 'var(--green)' : latest >= 75 ? 'var(--yellow)' : 'var(--red)';
+    const latestColor = latest === null ? 'var(--muted)' : latest >= 90 ? 'var(--green)' : latest >= 75 ? 'var(--yellow)' : 'var(--red)';
     const sparkBars = vals.map(v => {
-      if(v===null) return `<div class="spark-bar" style="height:2px;background:var(--border)"></div>`;
-      const h = maxV ? Math.round((v/maxV)*22)+2 : 2;
-      const col = v>=90?'var(--green)':v>=75?'var(--yellow)':'var(--red)';
+      if (v === null) return `<div class="spark-bar" style="height:2px;background:var(--border)"></div>`;
+      const h = maxV ? Math.round((v / maxV) * 22) + 2 : 2;
+      const col = v >= 90 ? 'var(--green)' : v >= 75 ? 'var(--yellow)' : 'var(--red)';
       return `<div class="spark-bar" style="height:${h}px;background:${col}"></div>`;
     }).join('');
-    const obs = {
-      'Anderson (CLTC)':'Decline this week driven by increased missed hours',
-      'Beaufort (CLTC)':'Improvement week-over-week, but still below target',
-    }; // fallback to d.obs
     return `<tr>
       <td class="td-site">${d.site}</td>
-      ${vals.map((v,i) => `<td class="td-pct" ${i===3?`style="color:${latestColor};font-weight:600"`:''}>${v!==null?v+'%':'—'}</td>`).join('')}
+      ${vals.map((v, i) => `<td class="td-pct" ${i === 3 ? `style="color:${latestColor};font-weight:600"` : ''}>${v !== null ? v + '%' : '—'}</td>`).join('')}
       <td class="spark-cell"><div class="spark">${sparkBars}</div></td>
       <td>${trendIcon(d.trendDir)}</td>
-      <td style="color:var(--muted);font-size:11px;max-width:200px">${d.obs}</td>
+      <td style="color:var(--muted);font-size:11px;max-width:200px">${d.trendObs || d.obs}</td>
     </tr>`;
   }).join('')}</tbody>`;
 }
@@ -859,21 +1026,22 @@ function renderTrendTable(data, tableId) {
 function renderActions() {
   const list = document.getElementById('action-list');
   list.innerHTML = actions.map(a => `
-    <div class="action-item ${a.critical?'critical-item':''}">
-      <div class="action-site">${a.site} ${a.critical?'<span style="font-size:10px;color:var(--red)">⚠</span>':''}</div>
+    <div class="action-item ${a.critical ? 'critical-item' : ''}">
+      <div class="action-site">${a.site} ${a.critical ? '<span style="font-size:10px;color:var(--red)">⚠</span>' : ''}</div>
       <div class="action-issue">${a.issue}</div>
       <div class="action-text">${a.action}</div>
       <div><span class="status-pill status-${a.status}">${a.status === 'inprogress' ? 'In Progress' : 'Not Started'}</span></div>
-      <div class="deadline-cell ${['4-May','5-May'].includes(a.deadline)?'deadline-urgent':''}">📅 ${a.deadline}</div>
+      <div class="deadline-cell">📅 ${a.deadline}</div>
     </div>`).join('');
 }
 
 // ── RENDER OVERVIEW BARS ──────────────────────────────────────────
 function renderHBar(data, containerId) {
-  const maxLost = Math.max(...data.map(d=>d.lost));
+  const eligible = data.filter(d => d.lost > 0);
+  const maxLost = Math.max(...eligible.map(d => d.lost));
   const el = document.getElementById(containerId);
-  el.innerHTML = data.filter(d=>d.lost>0).sort((a,b)=>b.lost-a.lost).map(d => {
-    const w = Math.round((d.lost/maxLost)*100);
+  el.innerHTML = eligible.sort((a, b) => b.lost - a.lost).map(d => {
+    const w = Math.round((d.lost / maxLost) * 100);
     const col = d.risk === 'critical' ? 'var(--red)' : d.risk === 'watch' ? 'var(--yellow)' : 'var(--green)';
     return `<div class="hbar-row">
       <span class="hbar-label">${d.site}</span>
@@ -884,11 +1052,11 @@ function renderHBar(data, containerId) {
 }
 
 // ── TAB SWITCHING ─────────────────────────────────────────────────
-function switchTab(name) {
+function switchTab(name, e) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-'+name).classList.add('active');
-  event.target.classList.add('active');
+  document.getElementById('tab-' + name).classList.add('active');
+  e.target.classList.add('active');
 }
 
 // ── INIT ──────────────────────────────────────────────────────────
